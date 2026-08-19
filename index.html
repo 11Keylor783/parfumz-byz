@@ -10,7 +10,7 @@
   <title>Parfumz BYZ | Fragancias de Lujo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet" />
 
   <style>
     /* =============================================
@@ -32,6 +32,70 @@
       --shadow-gold: 0 4px 30px rgba(201,162,39,0.25);
       --shadow-dark: 0 8px 40px rgba(0,0,0,0.5);
       --radius: 12px;
+    }
+
+    /* =============================================
+       THEME: HOMBRE DÍA (AZUL)
+    ============================================= */
+    body.theme-male-day {
+      --gold: #3A7BD5;
+      --gold-light: #5B9AE8;
+      --gold-dark: #2A5FA0;
+      --black: #0D1B2A;
+      --black-soft: #1B2838;
+      --black-mid: #243447;
+      --shadow-gold: 0 4px 30px rgba(58,123,213,0.25);
+    }
+    body.theme-male-day .hero-bg {
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(58,123,213,0.15) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 80% at 20% 80%, rgba(58,123,213,0.07) 0%, transparent 60%),
+        linear-gradient(160deg, #060d14 0%, #0D1B2A 40%, #0d1520 100%);
+    }
+
+    /* =============================================
+       THEME: HOMBRE NOCHE (ROJO)
+    ============================================= */
+    body.theme-male-night {
+      --gold: #C0392B;
+      --gold-light: #E74C3C;
+      --gold-dark: #96281B;
+      --black: #1A0A0A;
+      --black-soft: #2A1111;
+      --black-mid: #331818;
+      --shadow-gold: 0 4px 30px rgba(192,57,43,0.25);
+    }
+    body.theme-male-night .hero-bg {
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(192,57,43,0.15) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 80% at 20% 80%, rgba(192,57,43,0.07) 0%, transparent 60%),
+        linear-gradient(160deg, #0f0505 0%, #1A0A0A 40%, #200d0d 100%);
+    }
+
+    /* =============================================
+       THEME: MUJER (ROSA)
+    ============================================= */
+    body.theme-female {
+      --gold: #D4618C;
+      --gold-light: #E8829F;
+      --gold-dark: #B84A72;
+      --beige: #F9E8F0;
+      --cream: #FFF5F8;
+      --black: #1A0F14;
+      --black-soft: #261520;
+      --black-mid: #331D2A;
+      --text-muted: #A08890;
+      --shadow-gold: 0 4px 30px rgba(212,97,140,0.25);
+    }
+    body.theme-female .hero-bg {
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(212,97,140,0.15) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 80% at 20% 80%, rgba(212,97,140,0.07) 0%, transparent 60%),
+        linear-gradient(160deg, #0f0810 0%, #1A0F14 40%, #200f18 100%);
+    }
+    body.theme-female .particle { background: var(--gold); }
+    body.theme-female .footer-gold-stripe {
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light), var(--gold), var(--gold-dark));
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1338,6 +1402,146 @@
     #toast .toast-icon { color: var(--gold); margin-right: 8px; }
 
     /* =============================================
+       ADMIN SETTINGS PANEL
+    ============================================= */
+    .settings-group {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(201,162,39,0.15);
+    }
+    .settings-group:last-child { border-bottom: none; }
+    .settings-group-title {
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .settings-group-title span { font-size: 1rem; }
+    .settings-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .settings-select, .settings-input {
+      flex: 1;
+      min-width: 120px;
+      background: var(--black);
+      border: 1px solid rgba(201,162,39,0.25);
+      color: var(--cream);
+      font-family: var(--font-serif);
+      font-size: 0.82rem;
+      padding: 9px 12px;
+      border-radius: 4px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .settings-select:focus, .settings-input:focus { border-color: var(--gold); }
+    .settings-select option { background: var(--black-mid); }
+    .settings-label {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+    }
+    .settings-color-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+      min-width: 120px;
+    }
+    .settings-color-wrap input[type="color"] {
+      width: 36px; height: 36px;
+      border: 2px solid rgba(201,162,39,0.3);
+      border-radius: 6px;
+      cursor: pointer;
+      background: transparent;
+      padding: 2px;
+    }
+    .settings-color-wrap input[type="color"]::-webkit-color-swatch-wrapper { padding: 2px; }
+    .settings-color-wrap input[type="color"]::-webkit-color-swatch { border-radius: 3px; border: none; }
+    .settings-color-hex {
+      font-size: 0.78rem;
+      color: var(--cream);
+      font-family: monospace;
+    }
+    .settings-theme-btn {
+      flex: 1;
+      min-width: 90px;
+      padding: 10px 8px;
+      border: 2px solid rgba(201,162,39,0.25);
+      border-radius: 8px;
+      background: var(--black);
+      color: var(--cream);
+      font-family: var(--font-serif);
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+    }
+    .settings-theme-btn:hover { border-color: var(--gold); }
+    .settings-theme-btn.active { border-color: var(--gold); background: rgba(201,162,39,0.15); color: var(--gold); font-weight: 700; }
+    .settings-theme-btn .theme-icon { font-size: 1.4rem; display: block; margin-bottom: 4px; }
+    .settings-theme-btn .theme-label { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .settings-divider { height: 1px; background: rgba(201,162,39,0.15); margin: 16px 0; }
+    .settings-hint {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-top: 8px;
+    }
+    .github-publish-btn {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #238636, #2EA043, #3FB950);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-family: var(--font-serif);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .github-publish-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(46,160,67,0.4);
+    }
+    .github-publish-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+    .github-status {
+      margin-top: 10px;
+      font-size: 0.8rem;
+      padding: 8px 12px;
+      border-radius: 4px;
+      display: none;
+    }
+    .github-status.success { display: block; background: rgba(46,160,67,0.15); border: 1px solid rgba(46,160,67,0.3); color: #3FB950; }
+    .github-status.error { display: block; background: rgba(248,81,73,0.15); border: 1px solid rgba(248,81,73,0.3); color: #F85149; }
+    .github-status.loading { display: block; background: rgba(58,123,213,0.15); border: 1px solid rgba(58,123,213,0.3); color: #58A6FF; }
+    #modal-settings .modal-box { max-width: 520px; max-height: 85vh; overflow-y: auto; }
+    #modal-settings .modal-box::-webkit-scrollbar { width: 6px; }
+    #modal-settings .modal-box::-webkit-scrollbar-track { background: var(--black); }
+    #modal-settings .modal-box::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 3px; }
+
+    /* =============================================
        RESPONSIVE
     ============================================= */
     @media (max-width: 992px) {
@@ -1375,6 +1579,7 @@
   <span class="admin-toolbar-title">⚙ Modo Administrador Activo</span>
   <div class="admin-toolbar-actions">
     <button class="admin-tb-btn" id="tb-add-product" title="Añadir nuevo perfume">＋ Añadir Perfume</button>
+    <button class="admin-tb-btn" id="tb-settings" title="Configurar apariencia y publicar">⚙ Ajustes</button>
     <button class="admin-tb-btn" id="tb-save" title="Guardar cambios en localStorage">💾 Guardar Cambios</button>
     <button class="admin-tb-btn danger" id="tb-exit" title="Salir del modo admin">✕ Salir</button>
   </div>
@@ -1948,6 +2153,132 @@
 </div>
 
 <!-- ==============================
+     MODAL: SETTINGS (THEME/FONT/COLOR/GITHUB)
+============================== -->
+<div class="modal-overlay" id="modal-settings" role="dialog" aria-modal="true" aria-labelledby="modal-settings-title">
+  <div class="modal-box">
+    <button class="modal-close" id="modal-settings-close" aria-label="Cerrar">✕</button>
+    <h3 class="modal-title" id="modal-settings-title">Ajustes de Apariencia</h3>
+    <p class="modal-subtitle">Personaliza el tema, fuentes, colores y publica en GitHub.</p>
+
+    <!-- THEME SELECTOR -->
+    <div class="settings-group">
+      <div class="settings-group-title"><span>🎨</span> Tema / Género</div>
+      <p class="settings-label">Selecciona un tema</p>
+      <div class="settings-row" id="theme-buttons">
+        <button class="settings-theme-btn active" data-theme="default">
+          <span class="theme-icon">✦</span>
+          <span class="theme-label">Original</span>
+        </button>
+        <button class="settings-theme-btn" data-theme="male-day">
+          <span class="theme-icon">☀</span>
+          <span class="theme-label">Hombre Día</span>
+        </button>
+        <button class="settings-theme-btn" data-theme="male-night">
+          <span class="theme-icon">🌙</span>
+          <span class="theme-label">Hombre Noche</span>
+        </button>
+        <button class="settings-theme-btn" data-theme="female">
+          <span class="theme-icon">♡</span>
+          <span class="theme-label">Mujer</span>
+        </button>
+      </div>
+      <p class="settings-hint">Hombre Día = azul · Hombre Noche = rojo · Mujer = rosa</p>
+    </div>
+
+    <!-- FONT CUSTOMIZATION -->
+    <div class="settings-group">
+      <div class="settings-group-title"><span>🔤</span> Fuentes</div>
+      <p class="settings-label">Fuente principal del sitio</p>
+      <div class="settings-row">
+        <select class="settings-select" id="settings-font-family">
+          <option value="'Cormorant Garamond', Georgia, serif">Cormorant Garamond (Original)</option>
+          <option value="'Playfair Display', Georgia, serif">Playfair Display</option>
+          <option value="'Montserrat', Arial, sans-serif">Montserrat</option>
+          <option value="'Lora', Georgia, serif">Lora</option>
+          <option value="'Raleway', Arial, sans-serif">Raleway</option>
+          <option value="'Poppins', Arial, sans-serif">Poppins</option>
+          <option value="'Dancing Script', cursive">Dancing Script</option>
+          <option value="'Great Vibes', cursive">Great Vibes</option>
+          <option value="Georgia, 'Times New Roman', serif">Georgia (Sistema)</option>
+          <option value="'Trebuchet MS', Arial, sans-serif">Trebuchet MS (Sistema)</option>
+        </select>
+      </div>
+      <p class="settings-label" style="margin-top:10px;">Tamaño base del texto</p>
+      <div class="settings-row">
+        <input type="range" class="settings-input" id="settings-font-size" min="14" max="22" value="16" style="flex:3;padding:4px;" />
+        <span class="settings-color-hex" id="settings-font-size-val">16px</span>
+      </div>
+    </div>
+
+    <!-- COLOR CUSTOMIZATION -->
+    <div class="settings-group">
+      <div class="settings-group-title"><span>🎯</span> Colores Personalizados</div>
+      <p class="settings-label">Color principal (acentos y botones)</p>
+      <div class="settings-row">
+        <div class="settings-color-wrap">
+          <input type="color" id="settings-color-gold" value="#C9A227" />
+          <span class="settings-color-hex" id="settings-color-gold-val">#C9A227</span>
+        </div>
+      </div>
+      <p class="settings-label">Color de fondo</p>
+      <div class="settings-row">
+        <div class="settings-color-wrap">
+          <input type="color" id="settings-color-bg" value="#111111" />
+          <span class="settings-color-hex" id="settings-color-bg-val">#111111</span>
+        </div>
+      </div>
+      <p class="settings-label">Color del texto principal</p>
+      <div class="settings-row">
+        <div class="settings-color-wrap">
+          <input type="color" id="settings-color-text" value="#FAF6EC" />
+          <span class="settings-color-hex" id="settings-color-text-val">#FAF6EC</span>
+        </div>
+      </div>
+      <p class="settings-label">Color de texto secundario</p>
+      <div class="settings-row">
+        <div class="settings-color-wrap">
+          <input type="color" id="settings-color-muted" value="#888880" />
+          <span class="settings-color-hex" id="settings-color-muted-val">#888880</span>
+        </div>
+      </div>
+      <div class="settings-row" style="margin-top:10px;">
+        <button class="admin-tb-btn" id="btn-reset-colors" style="flex:1;">↺ Restablecer Colores</button>
+      </div>
+    </div>
+
+    <!-- GITHUB PUBLISH -->
+    <div class="settings-group">
+      <div class="settings-group-title"><span>🚀</span> Publicar en GitHub</div>
+      <p class="settings-label">GitHub Personal Access Token (PAT)</p>
+      <div class="settings-row">
+        <input type="password" class="settings-input" id="settings-github-pat" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" />
+      </div>
+      <p class="settings-label">Repositorio</p>
+      <div class="settings-row">
+        <input type="text" class="settings-input" id="settings-github-repo" value="11Keylor783/parfumz-byz" placeholder="usuario/repositorio" />
+      </div>
+      <p class="settings-label">Ruta del archivo</p>
+      <div class="settings-row">
+        <input type="text" class="settings-input" id="settings-github-path" value="index.html" placeholder="index.html" />
+      </div>
+      <button class="github-publish-btn" id="btn-github-publish">
+        🚀 Publicar cambios en GitHub
+      </button>
+      <div class="github-status" id="github-status"></div>
+      <p class="settings-hint">Tu PAT debe tener permisos de <strong>repo</strong>. Los cambios se subirán al repositorio y la web se actualizará automáticamente.</p>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-primary" id="btn-settings-save">
+        <span>Guardar Ajustes</span>
+      </button>
+      <button class="btn-outline" id="btn-settings-cancel">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==============================
      JAVASCRIPT
 ============================== -->
 <script>
@@ -2471,6 +2802,213 @@ function handleContactForm(e) {
 }
 
 // ============================================================
+//  SETTINGS: THEME, FONT, COLOR, GITHUB
+// ============================================================
+const LS_KEY_SETTINGS = 'parfumz_settings';
+
+function loadSettings() {
+  try {
+    const raw = localStorage.getItem(LS_KEY_SETTINGS);
+    return raw ? JSON.parse(raw) : {};
+  } catch { return {}; }
+}
+function saveSettings(s) {
+  localStorage.setItem(LS_KEY_SETTINGS, JSON.stringify(s));
+}
+
+let siteSettings = loadSettings();
+
+// Apply stored settings on load
+function applySettings() {
+  const s = siteSettings;
+  // Theme
+  if (s.theme && s.theme !== 'default') {
+    document.body.className = document.body.className.replace(/theme-\S+/g, '').trim();
+    document.body.classList.add('theme-' + s.theme);
+  }
+  // Font
+  if (s.fontFamily) {
+    document.documentElement.style.setProperty('--font-serif', s.fontFamily);
+  }
+  if (s.fontSize) {
+    document.documentElement.style.fontSize = s.fontSize + 'px';
+  }
+  // Custom colors
+  if (s.colorGold) document.documentElement.style.setProperty('--gold', s.colorGold);
+  if (s.colorGoldLight) document.documentElement.style.setProperty('--gold-light', s.colorGoldLight);
+  if (s.colorGoldDark) document.documentElement.style.setProperty('--gold-dark', s.colorGoldDark);
+  if (s.colorBg) {
+    document.documentElement.style.setProperty('--black', s.colorBg);
+  }
+  if (s.colorText) document.documentElement.style.setProperty('--cream', s.colorText);
+  if (s.colorMuted) document.documentElement.style.setProperty('--text-muted', s.colorMuted);
+  // GitHub PAT
+  if (s.githubPat) document.getElementById('settings-github-pat').value = s.githubPat;
+  if (s.githubRepo) document.getElementById('settings-github-repo').value = s.githubRepo;
+  if (s.githubPath) document.getElementById('settings-github-path').value = s.githubPath;
+}
+
+// Theme buttons
+document.querySelectorAll('.settings-theme-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.settings-theme-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const theme = btn.dataset.theme;
+    document.body.className = document.body.className.replace(/theme-\S+/g, '').trim();
+    if (theme !== 'default') {
+      document.body.classList.add('theme-' + theme);
+    }
+    siteSettings.theme = theme;
+  });
+});
+
+// Font family
+document.getElementById('settings-font-family').addEventListener('change', function() {
+  document.documentElement.style.setProperty('--font-serif', this.value);
+  siteSettings.fontFamily = this.value;
+});
+
+// Font size
+document.getElementById('settings-font-size').addEventListener('input', function() {
+  document.documentElement.style.fontSize = this.value + 'px';
+  document.getElementById('settings-font-size-val').textContent = this.value + 'px';
+  siteSettings.fontSize = this.value;
+});
+
+// Color pickers
+function setupColorPicker(id, cssVar, key) {
+  const picker = document.getElementById(id);
+  const hex = document.getElementById(id + '-val');
+  picker.addEventListener('input', function() {
+    document.documentElement.style.setProperty(cssVar, this.value);
+    hex.textContent = this.value;
+    siteSettings[key] = this.value;
+  });
+}
+setupColorPicker('settings-color-gold', '--gold', 'colorGold');
+setupColorPicker('settings-color-bg', '--black', 'colorBg');
+setupColorPicker('settings-color-text', '--cream', 'colorText');
+setupColorPicker('settings-color-muted', '--text-muted', 'colorMuted');
+
+// Reset colors
+document.getElementById('btn-reset-colors').addEventListener('click', () => {
+  const defaults = { gold: '#C9A227', 'gold-light': '#E2BC4E', 'gold-dark': '#A07C10', black: '#111111', cream: '#FAF6EC', 'text-muted': '#888880' };
+  Object.keys(defaults).forEach(v => document.documentElement.style.setProperty('--' + v, defaults[v]));
+  document.getElementById('settings-color-gold').value = '#C9A227';
+  document.getElementById('settings-color-gold-val').textContent = '#C9A227';
+  document.getElementById('settings-color-bg').value = '#111111';
+  document.getElementById('settings-color-bg-val').textContent = '#111111';
+  document.getElementById('settings-color-text').value = '#FAF6EC';
+  document.getElementById('settings-color-text-val').textContent = '#FAF6EC';
+  document.getElementById('settings-color-muted').value = '#888880';
+  document.getElementById('settings-color-muted-val').textContent = '#888880';
+  delete siteSettings.colorGold;
+  delete siteSettings.colorBg;
+  delete siteSettings.colorText;
+  delete siteSettings.colorMuted;
+  showToast('Colores restablecidos');
+});
+
+// Save settings button
+document.getElementById('btn-settings-save').addEventListener('click', () => {
+  siteSettings.githubPat = document.getElementById('settings-github-pat').value.trim();
+  siteSettings.githubRepo = document.getElementById('settings-github-repo').value.trim();
+  siteSettings.githubPath = document.getElementById('settings-github-path').value.trim();
+  saveSettings(siteSettings);
+  showToast('Ajustes guardados correctamente ✓');
+  closeModal('modal-settings');
+});
+
+// Cancel/close settings
+document.getElementById('btn-settings-cancel').addEventListener('click', () => closeModal('modal-settings'));
+document.getElementById('modal-settings-close').addEventListener('click', () => closeModal('modal-settings'));
+
+// Open settings from toolbar
+document.getElementById('tb-settings').addEventListener('click', () => {
+  openModal('modal-settings');
+});
+
+// ============================================================
+//  GITHUB PUBLISH FUNCTION
+// ============================================================
+document.getElementById('btn-github-publish').addEventListener('click', async () => {
+  const pat = document.getElementById('settings-github-pat').value.trim();
+  const repo = document.getElementById('settings-github-repo').value.trim();
+  const filePath = document.getElementById('settings-github-path').value.trim() || 'index.html';
+  const statusEl = document.getElementById('github-status');
+  const publishBtn = document.getElementById('btn-github-publish');
+
+  if (!pat) { statusEl.className = 'github-status error'; statusEl.textContent = '⚠ Ingresa tu GitHub Personal Access Token (PAT).'; return; }
+  if (!repo || !repo.includes('/')) { statusEl.className = 'github-status error'; statusEl.textContent = '⚠ Ingresa el repositorio en formato usuario/repositorio.'; return; }
+
+  statusEl.className = 'github-status loading';
+  statusEl.textContent = '⏳ Publicando cambios en GitHub...';
+  publishBtn.disabled = true;
+
+  try {
+    // Step 1: Get current file SHA
+    const getUrl = `https://api.github.com/repos/${repo}/contents/${filePath}`;
+    const getRes = await fetch(getUrl, {
+      headers: { 'Authorization': `token ${pat}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+
+    let sha = null;
+    if (getRes.ok) {
+      const fileData = await getRes.json();
+      sha = fileData.sha;
+    } else if (getRes.status === 404) {
+      sha = null; // New file
+    } else {
+      const errData = await getRes.json().catch(() => ({}));
+      throw new Error(`Error al obtener archivo: ${getRes.status} - ${errData.message || 'Error desconocido'}`);
+    }
+
+    // Step 2: Get DOM HTML
+    const htmlContent = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+
+    // Step 3: Convert to base64 (UTF-8 safe)
+    const encoder = new TextEncoder();
+    const data = encoder.encode(htmlContent);
+    let binary = '';
+    data.forEach(byte => { binary += String.fromCharCode(byte); });
+    const base64Content = btoa(binary);
+
+    // Step 4: PUT to GitHub API
+    const putUrl = `https://api.github.com/repos/${repo}/contents/${filePath}`;
+    const body = {
+      message: `Actualización automática desde panel admin - ${new Date().toLocaleString('es-CR')}`,
+      content: base64Content,
+      committer: { name: 'Parfumz BYZ Admin', email: 'admin@parfumz-byz.com' }
+    };
+    if (sha) body.sha = sha;
+
+    const putRes = await fetch(putUrl, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `token ${pat}`,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    });
+
+    if (putRes.ok) {
+      statusEl.className = 'github-status success';
+      statusEl.innerHTML = '✅ ¡Cambios guardados en GitHub! La web se actualizará en todos los dispositivos en 1 minuto.';
+      showToast('🚀 ¡Publicado en GitHub!');
+    } else {
+      const errData = await putRes.json().catch(() => ({}));
+      throw new Error(`Error ${putRes.status}: ${errData.message || 'No se pudo subir el archivo'}`);
+    }
+  } catch (err) {
+    statusEl.className = 'github-status error';
+    statusEl.textContent = '❌ Error: ' + err.message;
+  } finally {
+    publishBtn.disabled = false;
+  }
+});
+
+// ============================================================
 //  FOOTER YEAR
 // ============================================================
 document.getElementById('footer-year').textContent = new Date().getFullYear();
@@ -2479,6 +3017,7 @@ document.getElementById('footer-year').textContent = new Date().getFullYear();
 //  INIT
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
+  applySettings();
   createParticles();
   renderCatalog();
   renderChart();
