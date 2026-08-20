@@ -62,44 +62,69 @@ nav a:hover::after{width:100%}
 .section-title .line{width:60px;height:3px;background:var(--accent);margin:16px auto 0;border-radius:2px}
 
 /* CATALOG SECTIONS */
-.catalog-section{position:relative}
-.catalog-section.hombre-noche{background:var(--bg)}
-.catalog-section.hombre-dia{background:var(--blue-dark)}
-.catalog-section.hombre-dia .section-title h2{color:var(--blue)}
-.catalog-section.hombre-dia .section-title .line{background:var(--blue)}
-.catalog-section.mujer{background:var(--pink-dark)}
-.catalog-section.mujer .section-title h2{color:var(--pink)}
-.catalog-section.mujer .section-title .line{background:var(--pink)}
+.catalog-section{position:relative;padding:100px 0;overflow:hidden}
+.catalog-section::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none;opacity:.15}
 
-.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
-.product-card{background:transparent;border-radius:var(--radius);padding:28px;border:1px solid rgba(255,255,255,.1);transition:all .4s;position:relative;overflow:hidden;cursor:pointer}
-.product-card:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.25);box-shadow:0 8px 32px rgba(0,0,0,.3)}
+.catalog-section.hombre-noche{background:linear-gradient(180deg,#1a0505 0%,#0D0D0D 30%,#120303 100%)}
+.catalog-section.hombre-noche::before{background:radial-gradient(ellipse at 20% 50%,rgba(192,57,43,.15) 0%,transparent 60%),radial-gradient(ellipse at 80% 30%,rgba(150,40,27,.1) 0%,transparent 50%)}
+.catalog-section.hombre-noche .section-title h2{color:#E74C3C;text-shadow:0 0 30px rgba(231,76,60,.3)}
+.catalog-section.hombre-noche .section-title .line{background:linear-gradient(90deg,transparent,#E74C3C,transparent);height:2px;width:100px}
+.catalog-section.hombre-noche .product-card{--glow-color:rgba(231,76,60,.6);--spray-color:rgba(231,76,60,.6)}
+.catalog-section.hombre-noche .product-card:hover{border-color:rgba(231,76,60,.3);box-shadow:0 12px 40px rgba(192,57,43,.2)}
+
+.catalog-section.hombre-dia{background:linear-gradient(180deg,#0a1628 0%,#0D1B2A 30%,#0a1a30 100%)}
+.catalog-section.hombre-dia::before{background:radial-gradient(ellipse at 30% 40%,rgba(58,123,213,.15) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(40,90,170,.1) 0%,transparent 50%)}
+.catalog-section.hombre-dia .section-title h2{color:#5BA3E8;text-shadow:0 0 30px rgba(91,163,232,.3)}
+.catalog-section.hombre-dia .section-title .line{background:linear-gradient(90deg,transparent,#5BA3E8,transparent);height:2px;width:100px}
+.catalog-section.hombre-dia .product-card{--glow-color:rgba(91,163,232,.6);--spray-color:rgba(91,163,232,.6)}
+.catalog-section.hombre-dia .product-card:hover{border-color:rgba(91,163,232,.3);box-shadow:0 12px 40px rgba(58,123,213,.2)}
+
+.catalog-section.mujer{background:linear-gradient(180deg,#1f0a14 0%,#1A0F14 30%,#200d18 100%)}
+.catalog-section.mujer::before{background:radial-gradient(ellipse at 50% 30%,rgba(212,97,140,.15) 0%,transparent 60%),radial-gradient(ellipse at 20% 80%,rgba(180,70,120,.1) 0%,transparent 50%)}
+.catalog-section.mujer .section-title h2{color:#E88CB8;text-shadow:0 0 30px rgba(232,140,184,.3)}
+.catalog-section.mujer .section-title .line{background:linear-gradient(90deg,transparent,#E88CB8,transparent);height:2px;width:100px}
+.catalog-section.mujer .product-card{--glow-color:rgba(232,140,184,.6);--spray-color:rgba(232,140,184,.6)}
+.catalog-section.mujer .product-card:hover{border-color:rgba(232,140,184,.3);box-shadow:0 12px 40px rgba(212,97,140,.2)}
+
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:28px}
+.product-card{background:rgba(255,255,255,.03);border-radius:16px;padding:28px 24px;border:1px solid rgba(255,255,255,.08);transition:all .5s cubic-bezier(.4,0,.2,1);position:relative;overflow:visible;cursor:pointer}
+.product-card:hover{transform:translateY(-8px);border-color:rgba(255,255,255,.2);box-shadow:0 12px 40px rgba(0,0,0,.5)}
 .product-card .badge{position:absolute;top:16px;right:16px;padding:4px 12px;border-radius:20px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;z-index:2}
-.product-card img{transition:transform .5s ease;filter:drop-shadow(0 4px 12px rgba(0,0,0,.4))}
-.product-card:hover img{transform:scale(1.03)}
-.product-card .bottle-wrap{position:relative;display:inline-block;width:100%}
-.product-card .bottle-wrap img{display:block;width:100%;border-radius:8px;margin-bottom:16px;aspect-ratio:1/1;object-fit:cover}
-.product-card .aroma{position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:60px;pointer-events:none;opacity:0;transition:opacity .4s}
-.product-card .aroma span{display:block;width:8px;height:8px;background:rgba(192,57,43,.4);border-radius:50%;position:absolute;bottom:0;left:50%;animation:none}
-.product-card.active .aroma{opacity:1}
-.product-card.active .aroma span{animation:arise 2s ease-in-out infinite}
-.product-card.active .aroma span:nth-child(1){animation-delay:0s;left:30%}
-.product-card.active .aroma span:nth-child(2){animation-delay:.4s;left:50%}
-.product-card.active .aroma span:nth-child(3){animation-delay:.8s;left:70%}
-.product-card.active .aroma span:nth-child(4){animation-delay:1.2s;left:40%}
-.product-card.active .aroma span:nth-child(5){animation-delay:1.6s;left:60%}
-@keyframes arise{0%{transform:translateY(0) scale(1);opacity:.6}50%{transform:translateY(-40px) scale(1.5);opacity:.3}100%{transform:translateY(-80px) scale(2);opacity:0}}
-.product-card h3{font-size:1.15rem;font-weight:700;margin-bottom:4px}
-.product-type{font-size:.8rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;opacity:.6}
+
+/* BOTTLE IMAGE WRAP */
+.bottle-wrap{position:relative;display:flex;justify-content:center;align-items:center;height:240px;margin-bottom:16px;overflow:visible}
+.bottle-wrap img{width:100%;max-width:200px;height:220px;object-fit:contain;transition:transform .5s cubic-bezier(.4,0,.2,1),filter .4s;filter:drop-shadow(0 4px 20px rgba(0,0,0,.5));position:relative;z-index:1;background:none}
+.product-card:hover .bottle-wrap img{transform:scale(1.06) translateY(-4px);filter:drop-shadow(0 8px 30px rgba(0,0,0,.6))}
+.product-card.active .bottle-wrap img{transform:scale(1.1) translateY(-8px);filter:drop-shadow(0 12px 40px rgba(0,0,0,.7))}
+
+/* SPRAY PARTICLES */
+.spray-wrap{position:absolute;top:-5px;left:50%;transform:translateX(-50%);width:80px;height:120px;pointer-events:none;opacity:0;transition:opacity .3s;z-index:15}
+.product-card.active .spray-wrap{opacity:1}
+.spray-particle{position:absolute;border-radius:50%;animation:sprayUp 1.4s ease-out infinite;opacity:0}
+.spray-particle:nth-child(1){width:6px;height:6px;left:35%;animation-delay:0s;background:var(--spray-color,rgba(192,57,43,.8))}
+.spray-particle:nth-child(2){width:5px;height:5px;left:50%;animation-delay:.18s;background:var(--spray-color,rgba(231,76,60,.7))}
+.spray-particle:nth-child(3){width:7px;height:7px;left:65%;animation-delay:.36s;background:var(--spray-color,rgba(192,57,43,.6))}
+.spray-particle:nth-child(4){width:4px;height:4px;left:42%;animation-delay:.54s;background:var(--spray-color,rgba(231,76,60,.7))}
+.spray-particle:nth-child(5){width:5px;height:5px;left:58%;animation-delay:.72s;background:var(--spray-color,rgba(192,57,43,.8))}
+.spray-particle:nth-child(6){width:6px;height:6px;left:30%;animation-delay:.9s;background:var(--spray-color,rgba(231,76,60,.5))}
+.spray-particle:nth-child(7){width:4px;height:4px;left:70%;animation-delay:1.08s;background:var(--spray-color,rgba(192,57,43,.6))}
+@keyframes sprayUp{0%{transform:translateY(0) scale(1);opacity:0}12%{opacity:1}50%{transform:translateY(-60px) scale(1.6);opacity:.5}100%{transform:translateY(-120px) scale(.4);opacity:0}}
+
+/* GLOW on active */
+.product-card.active::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,var(--glow-color,rgba(192,57,43,.15)) 0%,transparent 70%);pointer-events:none;z-index:0;animation:pulseGlow 2s ease-in-out infinite}
+@keyframes pulseGlow{0%,100%{opacity:.5;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.15)}}
+
+.product-card h3{font-size:1.1rem;font-weight:700;margin-bottom:4px}
+.product-type{font-size:.75rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;opacity:.55}
 .product-notes{max-height:0;overflow:hidden;transition:max-height .5s ease,opacity .4s ease;opacity:0}
 .product-card.active .product-notes{max-height:300px;opacity:1}
-.product-notes p{font-size:.88rem;color:var(--text-muted);line-height:1.5;margin-bottom:12px}
-.select-btn{display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:8px 16px;border-radius:8px;background:rgba(255,255,255,.08);color:var(--text);font-size:.82rem;font-weight:600;border:1px solid rgba(255,255,255,.15);transition:all .3s;cursor:pointer}
+.product-notes p{font-size:.85rem;color:var(--text-muted);line-height:1.6;margin-bottom:12px}
+.select-btn{display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:8px 16px;border-radius:8px;background:rgba(255,255,255,.08);color:var(--text);font-size:.8rem;font-weight:600;border:1px solid rgba(255,255,255,.12);transition:all .3s;cursor:pointer}
 .select-btn:hover{background:rgba(255,255,255,.15)}
 .product-card.active .select-btn{background:var(--accent);border-color:var(--accent);color:#fff}
 .whatsapp-btn{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:10px 20px;border-radius:8px;background:#25D366;color:#fff;font-size:.82rem;font-weight:600;transition:all .3s;border:none;cursor:pointer}
 .whatsapp-btn:hover{background:#20BD5A;transform:translateY(-2px)}
-.placeholder-card{grid-column:1/-1;text-align:center;padding:80px 40px;border:2px dashed rgba(255,255,255,.1);border-radius:var(--radius);background:rgba(255,255,255,.02)}
+.placeholder-card{grid-column:1/-1;text-align:center;padding:80px 40px;border:2px dashed rgba(255,255,255,.1);border-radius:16px;background:rgba(255,255,255,.02)}
 .placeholder-card h3{font-size:1.4rem;margin-bottom:8px;opacity:.5}
 .placeholder-card p{color:var(--text-muted);opacity:.4}
 
@@ -220,11 +245,11 @@ footer .logo{margin-bottom:12px;font-size:1.4rem}
       <div class="line"></div>
     </div>
     <div class="products-grid">
+
       <div class="product-card reveal">
-        <div class="badge badge-new">Nuevo</div>
         <div class="bottle-wrap">
-          <img src="mandary-sky.webp" alt="Mandary Sky">
-          <div class="aroma"><span></span><span></span><span></span><span></span><span></span></div>
+          <img src="https://fimgs.net/mdimg/perfume/social.83132.jpg" alt="Mandary Sky">
+          <div class="spray-wrap"><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span></div>
         </div>
         <h3>Mandary Sky</h3>
         <div class="product-type">Amaderado Oriental</div>
@@ -234,11 +259,11 @@ footer .logo{margin-bottom:12px;font-size:1.4rem}
         </div>
         <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20Mandary%20Sky.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
       </div>
+
       <div class="product-card reveal">
-        <div class="badge badge-new">Nuevo</div>
         <div class="bottle-wrap">
           <img src="https://fimgs.net/mdimg/perfume/social.106709.jpg" alt="Mandaryn Sky Elixir">
-          <div class="aroma"><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="spray-wrap"><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span></div>
         </div>
         <h3>Mandaryn Sky Elixir</h3>
         <div class="product-type">Oriental Dulce</div>
@@ -248,12 +273,13 @@ footer .logo{margin-bottom:12px;font-size:1.4rem}
         </div>
         <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20Mandaryn%20Sky%20Elixir.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
       </div>
+
       <div class="product-card reveal">
         <div class="bottle-wrap">
-          <img src="https://fimgs.net/mdimg/perfume/o.51816.jpg" alt="Al Haramain Amber Oud Gold Edition">
-          <div class="aroma"><span></span><span></span><span></span><span></span><span></span></div>
+          <img src="https://fimgs.net/mdimg/perfume/social.51816.jpg" alt="Al Haramain Amber Oud Gold Edition">
+          <div class="spray-wrap"><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span></div>
         </div>
-        <h3>Al Haramain Amber Oud Gold Edition</h3>
+        <h3>Al Haramain Amber Oud Gold</h3>
         <div class="product-type">Oriental Amaderado</div>
         <div class="select-btn">🔍 Ver Notas</div>
         <div class="product-notes">
@@ -261,10 +287,11 @@ footer .logo{margin-bottom:12px;font-size:1.4rem}
         </div>
         <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20Al%20Haramain%20Amber%20Oud%20Gold.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
       </div>
+
       <div class="product-card reveal">
         <div class="bottle-wrap">
-          <img src="https://fimgs.net/mdimg/perfume/o.123217.jpg" alt="Rasasi Hawas London">
-          <div class="aroma"><span></span><span></span><span></span><span></span><span></span></div>
+          <img src="https://fimgs.net/mdimg/perfume/social.123217.jpg" alt="Rasasi Hawas London">
+          <div class="spray-wrap"><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span></div>
         </div>
         <h3>Rasasi Hawas London</h3>
         <div class="product-type">Oriental Amaderado</div>
@@ -274,6 +301,7 @@ footer .logo{margin-bottom:12px;font-size:1.4rem}
         </div>
         <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20Rasasi%20Hawas%20London.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
       </div>
+
     </div>
   </div>
 </section>
@@ -287,10 +315,11 @@ footer .logo{margin-bottom:12px;font-size:1.4rem}
       <div class="line"></div>
     </div>
     <div class="products-grid">
+
       <div class="product-card reveal">
         <div class="bottle-wrap">
-          <img src="https://fimgs.net/mdimg/perfume/o.77860.jpg" alt="Club de Nuit Urban Man Elixir">
-          <div class="aroma"><span></span><span></span><span></span><span></span><span></span></div>
+          <img src="https://fimgs.net/mdimg/perfume/social.77860.jpg" alt="Club de Nuit Urban Man Elixir">
+          <div class="spray-wrap"><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span></div>
         </div>
         <h3>Club de Nuit Urban Man Elixir</h3>
         <div class="product-type">Fresco Aromático</div>
@@ -300,10 +329,11 @@ footer .logo{margin-bottom:12px;font-size:1.4rem}
         </div>
         <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20Club%20de%20Nuit%20Urban%20Man%20Elixir.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
       </div>
+
       <div class="product-card reveal">
         <div class="bottle-wrap">
-          <img src="https://fimgs.net/mdimg/perfume/o.913.jpg" alt="Nautica Voyage">
-          <div class="aroma"><span></span><span></span><span></span><span></span><span></span></div>
+          <img src="https://fimgs.net/mdimg/perfume/social.913.jpg" alt="Nautica Voyage">
+          <div class="spray-wrap"><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span></div>
         </div>
         <h3>Nautica Voyage</h3>
         <div class="product-type">Fresco Aromático</div>
@@ -313,10 +343,11 @@ footer .logo{margin-bottom:12px;font-size:1.4rem}
         </div>
         <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20Nautica%20Voyage.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
       </div>
+
       <div class="product-card reveal">
         <div class="bottle-wrap">
-          <img src="https://fimgs.net/mdimg/perfume/o.83133.jpg" alt="Armaf Odyssey Mega">
-          <div class="aroma"><span></span><span></span><span></span><span></span><span></span></div>
+          <img src="https://fimgs.net/mdimg/perfume/social.83133.jpg" alt="Armaf Odyssey Mega">
+          <div class="spray-wrap"><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span></div>
         </div>
         <h3>Armaf Odyssey Mega Limited Edition</h3>
         <div class="product-type">Fresco Especiado</div>
@@ -326,10 +357,11 @@ footer .logo{margin-bottom:12px;font-size:1.4rem}
         </div>
         <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20Armaf%20Odyssey%20Mega.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
       </div>
+
       <div class="product-card reveal">
         <div class="bottle-wrap">
-          <img src="https://fimgs.net/mdimg/perfume/o.103875.jpg" alt="Bharara Viking Beirut">
-          <div class="aroma"><span></span><span></span><span></span><span></span><span></span></div>
+          <img src="https://fimgs.net/mdimg/perfume/social.103875.jpg" alt="Bharara Viking Beirut">
+          <div class="spray-wrap"><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span></div>
         </div>
         <h3>Bharara Viking Beirut</h3>
         <div class="product-type">Cítrico Aromático</div>
@@ -339,6 +371,7 @@ footer .logo{margin-bottom:12px;font-size:1.4rem}
         </div>
         <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20Bharara%20Viking%20Beirut.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
       </div>
+
     </div>
   </div>
 </section>
@@ -352,10 +385,11 @@ footer .logo{margin-bottom:12px;font-size:1.4rem}
       <div class="line"></div>
     </div>
     <div class="products-grid">
+
       <div class="product-card reveal">
         <div class="bottle-wrap">
-          <img src="https://fimgs.net/mdimg/perfume/o.96990.jpg" alt="Armaf Odyssey Candee">
-          <div class="aroma"><span></span><span></span><span></span><span></span><span></span></div>
+          <img src="https://fimgs.net/mdimg/perfume/social.96990.jpg" alt="Armaf Odyssey Candee">
+          <div class="spray-wrap"><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span></div>
         </div>
         <h3>Armaf Odyssey Candee</h3>
         <div class="product-type">Floral Gourmand</div>
@@ -365,6 +399,21 @@ footer .logo{margin-bottom:12px;font-size:1.4rem}
         </div>
         <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20Armaf%20Odyssey%20Candee.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
       </div>
+
+      <div class="product-card reveal">
+        <div class="bottle-wrap">
+          <img src="https://fimgs.net/mdimg/perfume/social.115132.jpg" alt="Armaf Odyssey Marshmallow">
+          <div class="spray-wrap"><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span></div>
+        </div>
+        <h3>Armaf Odyssey Marshmallow</h3>
+        <div class="product-type">Floral Gourmand</div>
+        <div class="select-btn">🔍 Ver Notas</div>
+        <div class="product-notes">
+          <p><strong>Notas de salida:</strong> Coco, manzana, limón, peonía, lirio del valle.<br><strong>Notas de corazón:</strong> Malvavisco, fresa, frambuesa, durazno, albaricoque, naranja.<br><strong>Notas de fondo:</strong> Queso mascarpone, vainilla, praliné, almizcle, tonka, ámbar.</p>
+        </div>
+        <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20Armaf%20Odyssey%20Marshmallow.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -412,7 +461,7 @@ footer .logo{margin-bottom:12px;font-size:1.4rem}
       <a href="#contacto" class="btn btn-primary" style="margin-top:16px">Contáctanos</a>
     </div>
     <div class="nosotros-visual reveal">
-      <img src="https://fimgs.net/mdimg/perfume/o.83132.jpg" alt="Fran Parfumz Colección" style="width:100%;max-width:360px;border-radius:16px;box-shadow:0 10px 40px rgba(192,57,43,.3)">
+      <img src="https://fimgs.net/mdimg/perfume/social.83132.jpg" alt="Fran Parfumz Colección" style="width:100%;max-width:360px;border-radius:16px;box-shadow:0 10px 40px rgba(192,57,43,.3)">
     </div>
   </div>
 </section>
@@ -580,3 +629,4 @@ function sendWhatsApp(e) {
 </script>
 </body>
 </html>
+```[cite: 4]
