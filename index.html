@@ -4,24 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fran Parfumz — Perfumería de Autor</title>
-html{scro<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-:root {
-  --bg: #0D0D0D;
-  --bg-card: #1A1A1A;
-  --bg-section-alt: #111111;
-  --text: #F5F5F5;
-  --text-muted: #999999;
-  --accent: #C0392B;
-  --accent-light: #E74C3C;
-  --accent-dark: #96281B;
-  --blue: #3A7BD5;
-  --blue-dark: #0D1B2A;
-  --pink: #D4618C;
-  --pink-dark: #1A0F14;
-  --radius: 12px;
-  --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-}ll-behavior:smooth}
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0D0D0D;--bg-card:#1A1A1A;--bg-section-alt:#111;--text:#F5F5F5;--text-muted:#999;
+--accent:#C0392B;--accent-light:#E74C3C;--accent-dark:#96281B;
+--blue:#3A7BD5;--blue-dark:#0D1B2A;
+--pink:#D4618C;--pink-dark:#1A0F14;
+--radius:12px;--shadow:0 8px 32px rgba(0,0,0,.4);
+}
+html{scroll-behavior:smooth}
 body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 ul{list-style:none}
@@ -80,20 +72,32 @@ nav a:hover::after{width:100%}
 .catalog-section.mujer .section-title .line{background:var(--pink)}
 
 .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
-.product-card{background:rgba(255,255,255,.05);border-radius:var(--radius);padding:28px;border:1px solid rgba(255,255,255,.08);transition:all .4s;position:relative;overflow:hidden}
-.product-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:rgba(255,255,255,.15)}
-.product-card .badge{position:absolute;top:16px;right:16px;padding:4px 12px;border-radius:20px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px}
-.badge-fresh{background:rgba(58,123,213,.2);color:#5DADE2}
-.badge-new{background:rgba(46,204,113,.2);color:#2ECC71}
-.badge-bestseller{background:rgba(212,97,140,.2);color:#D4618C}
-.badge-exclusive{background:rgba(192,57,43,.2);color:#E74C3C}
-.product-icon{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:1.4rem}
-.hombre-dia .product-icon{background:rgba(58,123,213,.15);color:var(--blue)}
-.mujer .product-icon{background:rgba(212,97,140,.15);color:var(--pink)}
+.product-card{background:transparent;border-radius:var(--radius);padding:28px;border:1px solid rgba(255,255,255,.1);transition:all .4s;position:relative;overflow:hidden;cursor:pointer}
+.product-card:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.25);box-shadow:0 8px 32px rgba(0,0,0,.3)}
+.product-card .badge{position:absolute;top:16px;right:16px;padding:4px 12px;border-radius:20px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;z-index:2}
+.product-card img{transition:transform .5s ease;filter:drop-shadow(0 4px 12px rgba(0,0,0,.4))}
+.product-card:hover img{transform:scale(1.03)}
+.product-card .bottle-wrap{position:relative;display:inline-block;width:100%}
+.product-card .bottle-wrap img{display:block;width:100%;border-radius:8px;margin-bottom:16px;aspect-ratio:1/1;object-fit:cover}
+.product-card .aroma{position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:60px;pointer-events:none;opacity:0;transition:opacity .4s}
+.product-card .aroma span{display:block;width:8px;height:8px;background:rgba(192,57,43,.4);border-radius:50%;position:absolute;bottom:0;left:50%;animation:none}
+.product-card.active .aroma{opacity:1}
+.product-card.active .aroma span{animation:arise 2s ease-in-out infinite}
+.product-card.active .aroma span:nth-child(1){animation-delay:0s;left:30%}
+.product-card.active .aroma span:nth-child(2){animation-delay:.4s;left:50%}
+.product-card.active .aroma span:nth-child(3){animation-delay:.8s;left:70%}
+.product-card.active .aroma span:nth-child(4){animation-delay:1.2s;left:40%}
+.product-card.active .aroma span:nth-child(5){animation-delay:1.6s;left:60%}
+@keyframes arise{0%{transform:translateY(0) scale(1);opacity:.6}50%{transform:translateY(-40px) scale(1.5);opacity:.3}100%{transform:translateY(-80px) scale(2);opacity:0}}
 .product-card h3{font-size:1.15rem;font-weight:700;margin-bottom:4px}
-.product-type{font-size:.8rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;opacity:.6}
-.product-card p{font-size:.88rem;color:var(--text-muted);line-height:1.5}
-.whatsapp-btn{display:inline-flex;align-items:center;gap:6px;margin-top:16px;padding:10px 20px;border-radius:8px;background:#25D366;color:#fff;font-size:.82rem;font-weight:600;transition:all .3s;border:none;cursor:pointer}
+.product-type{font-size:.8rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;opacity:.6}
+.product-notes{max-height:0;overflow:hidden;transition:max-height .5s ease,opacity .4s ease;opacity:0}
+.product-card.active .product-notes{max-height:300px;opacity:1}
+.product-notes p{font-size:.88rem;color:var(--text-muted);line-height:1.5;margin-bottom:12px}
+.select-btn{display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:8px 16px;border-radius:8px;background:rgba(255,255,255,.08);color:var(--text);font-size:.82rem;font-weight:600;border:1px solid rgba(255,255,255,.15);transition:all .3s;cursor:pointer}
+.select-btn:hover{background:rgba(255,255,255,.15)}
+.product-card.active .select-btn{background:var(--accent);border-color:var(--accent);color:#fff}
+.whatsapp-btn{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:10px 20px;border-radius:8px;background:#25D366;color:#fff;font-size:.82rem;font-weight:600;transition:all .3s;border:none;cursor:pointer}
 .whatsapp-btn:hover{background:#20BD5A;transform:translateY(-2px)}
 .placeholder-card{grid-column:1/-1;text-align:center;padding:80px 40px;border:2px dashed rgba(255,255,255,.1);border-radius:var(--radius);background:rgba(255,255,255,.02)}
 .placeholder-card h3{font-size:1.4rem;margin-bottom:8px;opacity:.5}
@@ -218,32 +222,56 @@ footer .logo{margin-bottom:12px;font-size:1.4rem}
     <div class="products-grid">
       <div class="product-card reveal">
         <div class="badge badge-new">Nuevo</div>
-        <img src="mandary-sky.webp" alt="Mandary Sky" style="width:100%;border-radius:8px;margin-bottom:16px">
+        <div class="bottle-wrap">
+          <img src="mandary-sky.webp" alt="Mandary Sky">
+          <div class="aroma"><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
         <h3>Mandary Sky</h3>
         <div class="product-type">Amaderado Oriental</div>
-        <p>Notas de mandarina dulce, caramelo y un secado amaderado. Una fragancia que envuelve la noche con calidez y sofisticación.</p>
+        <div class="select-btn">🔍 Ver Notas</div>
+        <div class="product-notes">
+          <p>Notas de mandarina dulce, caramelo y un secado amaderado. Una fragancia que envuelve la noche con calidez y sofisticación.</p>
+        </div>
         <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20Mandary%20Sky.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
       </div>
       <div class="product-card reveal">
         <div class="badge badge-new">Nuevo</div>
-        <img src="https://fimgs.net/mdimg/perfume/o.106709.jpg" alt="Mandaryn Sky Elixir" style="width:100%;border-radius:8px;margin-bottom:16px;aspect-ratio:1/1;object-fit:cover">
+        <div class="bottle-wrap">
+          <img src="https://fimgs.net/mdimg/perfume/social.106709.jpg" alt="Mandaryn Sky Elixir">
+          <div class="aroma"><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
         <h3>Mandaryn Sky Elixir</h3>
         <div class="product-type">Oriental Dulce</div>
-        <p><strong>Notas de salida:</strong> Caramelo, mandarina.<br><strong>Notas de fondo:</strong> Vainilla, vetiver.</p>
+        <div class="select-btn">🔍 Ver Notas</div>
+        <div class="product-notes">
+          <p><strong>Notas de salida:</strong> Caramelo, mandarina.<br><strong>Notas de fondo:</strong> Vainilla, vetiver.</p>
+        </div>
         <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20Mandaryn%20Sky%20Elixir.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
       </div>
       <div class="product-card reveal">
-        <img src="https://fimgs.net/mdimg/perfume/o.51816.jpg" alt="Al Haramain Amber Oud Gold Edition" style="width:100%;border-radius:8px;margin-bottom:16px;aspect-ratio:1/1;object-fit:cover">
+        <div class="bottle-wrap">
+          <img src="https://fimgs.net/mdimg/perfume/o.51816.jpg" alt="Al Haramain Amber Oud Gold Edition">
+          <div class="aroma"><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
         <h3>Al Haramain Amber Oud Gold Edition</h3>
         <div class="product-type">Oriental Amaderado</div>
-        <p><strong>Notas de salida:</strong> Bergamota, notas verdes.<br><strong>Notas de corazón:</strong> Melón, piña, notas dulces, ámbar.<br><strong>Notas de fondo:</strong> Almizcle, vainilla, notas amaderadas.</p>
+        <div class="select-btn">🔍 Ver Notas</div>
+        <div class="product-notes">
+          <p><strong>Notas de salida:</strong> Bergamota, notas verdes.<br><strong>Notas de corazón:</strong> Melón, piña, notas dulces, ámbar.<br><strong>Notas de fondo:</strong> Almizcle, vainilla, notas amaderadas.</p>
+        </div>
         <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20Al%20Haramain%20Amber%20Oud%20Gold.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
       </div>
       <div class="product-card reveal">
-        <img src="https://fimgs.net/mdimg/perfume/o.123217.jpg" alt="Rasasi Hawas London" style="width:100%;border-radius:8px;margin-bottom:16px;aspect-ratio:1/1;object-fit:cover">
+        <div class="bottle-wrap">
+          <img src="https://fimgs.net/mdimg/perfume/o.123217.jpg" alt="Rasasi Hawas London">
+          <div class="aroma"><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
         <h3>Rasasi Hawas London</h3>
         <div class="product-type">Oriental Amaderado</div>
-        <p><strong>Notas de salida:</strong> Pimienta rosa, azafrán, pera.<br><strong>Notas de corazón:</strong> Rosa, incienso (olíbano), flores blancas.<br><strong>Notas de fondo:</strong> Maderas rubias, ámbar, almizcle, vainilla.</p>
+        <div class="select-btn">🔍 Ver Notas</div>
+        <div class="product-notes">
+          <p><strong>Notas de salida:</strong> Pimienta rosa, azafrán, pera.<br><strong>Notas de corazón:</strong> Rosa, incienso (olíbano), flores blancas.<br><strong>Notas de fondo:</strong> Maderas rubias, ámbar, almizcle, vainilla.</p>
+        </div>
         <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20Rasasi%20Hawas%20London.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
       </div>
     </div>
@@ -260,31 +288,55 @@ footer .logo{margin-bottom:12px;font-size:1.4rem}
     </div>
     <div class="products-grid">
       <div class="product-card reveal">
-        <img src="https://fimgs.net/mdimg/perfume/o.77860.jpg" alt="Club de Nuit Urban Man Elixir" style="width:100%;border-radius:8px;margin-bottom:16px;aspect-ratio:1/1;object-fit:cover">
+        <div class="bottle-wrap">
+          <img src="https://fimgs.net/mdimg/perfume/o.77860.jpg" alt="Club de Nuit Urban Man Elixir">
+          <div class="aroma"><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
         <h3>Club de Nuit Urban Man Elixir</h3>
         <div class="product-type">Fresco Aromático</div>
-        <p><strong>Notas de salida:</strong> Piña, bergamota.<br><strong>Notas de corazón:</strong> Rosa, jazmín.<br><strong>Notas de fondo:</strong> Ambroxan, almizcle.</p>
+        <div class="select-btn">🔍 Ver Notas</div>
+        <div class="product-notes">
+          <p><strong>Notas de salida:</strong> Piña, bergamota.<br><strong>Notas de corazón:</strong> Rosa, jazmín.<br><strong>Notas de fondo:</strong> Ambroxan, almizcle.</p>
+        </div>
         <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20Club%20de%20Nuit%20Urban%20Man%20Elixir.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
       </div>
       <div class="product-card reveal">
-        <img src="https://fimgs.net/mdimg/perfume/o.913.jpg" alt="Nautica Voyage" style="width:100%;border-radius:8px;margin-bottom:16px;aspect-ratio:1/1;object-fit:cover">
+        <div class="bottle-wrap">
+          <img src="https://fimgs.net/mdimg/perfume/o.913.jpg" alt="Nautica Voyage">
+          <div class="aroma"><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
         <h3>Nautica Voyage</h3>
         <div class="product-type">Fresco Aromático</div>
-        <p><strong>Notas de salida:</strong> Manzana verde, hojas verdes.<br><strong>Notas de corazón:</strong> Flor de loto, mimosa.<br><strong>Notas de fondo:</strong> Almizcle, cedro, ámbar, musgo de roble.</p>
+        <div class="select-btn">🔍 Ver Notas</div>
+        <div class="product-notes">
+          <p><strong>Notas de salida:</strong> Manzana verde, hojas verdes.<br><strong>Notas de corazón:</strong> Flor de loto, mimosa.<br><strong>Notas de fondo:</strong> Almizcle, cedro, ámbar, musgo de roble.</p>
+        </div>
         <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20Nautica%20Voyage.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
       </div>
       <div class="product-card reveal">
-        <img src="https://fimgs.net/mdimg/perfume/o.83133.jpg" alt="Armaf Odyssey Mega" style="width:100%;border-radius:8px;margin-bottom:16px;aspect-ratio:1/1;object-fit:cover">
+        <div class="bottle-wrap">
+          <img src="https://fimgs.net/mdimg/perfume/o.83133.jpg" alt="Armaf Odyssey Mega">
+          <div class="aroma"><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
         <h3>Armaf Odyssey Mega Limited Edition</h3>
         <div class="product-type">Fresco Especiado</div>
-        <p><strong>Notas de salida:</strong> Bergamota, naranja, jengibre, limón, menta.<br><strong>Notas de corazón:</strong> Enebro de Virginia, geranio, salvia, piña.<br><strong>Notas de fondo:</strong> Tonka, cedro, vetiver, almizcle.</p>
+        <div class="select-btn">🔍 Ver Notas</div>
+        <div class="product-notes">
+          <p><strong>Notas de salida:</strong> Bergamota, naranja, jengibre, limón, menta.<br><strong>Notas de corazón:</strong> Enebro de Virginia, geranio, salvia, piña.<br><strong>Notas de fondo:</strong> Tonka, cedro, vetiver, almizcle.</p>
+        </div>
         <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20Armaf%20Odyssey%20Mega.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
       </div>
       <div class="product-card reveal">
-        <img src="https://fimgs.net/mdimg/perfume/o.103875.jpg" alt="Bharara Viking Beirut" style="width:100%;border-radius:8px;margin-bottom:16px;aspect-ratio:1/1;object-fit:cover">
+        <div class="bottle-wrap">
+          <img src="https://fimgs.net/mdimg/perfume/o.103875.jpg" alt="Bharara Viking Beirut">
+          <div class="aroma"><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
         <h3>Bharara Viking Beirut</h3>
         <div class="product-type">Cítrico Aromático</div>
-        <p><strong>Notas de salida:</strong> Bergamota, limón, naranja.<br><strong>Notas de corazón:</strong> Notas florales, jazmín, especias suaves.<br><strong>Notas de fondo:</strong> Madera de cedro, ámbar, almizcle, notas amaderadas.</p>
+        <div class="select-btn">🔍 Ver Notas</div>
+        <div class="product-notes">
+          <p><strong>Notas de salida:</strong> Bergamota, limón, naranja.<br><strong>Notas de corazón:</strong> Notas florales, jazmín, especias suaves.<br><strong>Notas de fondo:</strong> Madera de cedro, ámbar, almizcle, notas amaderadas.</p>
+        </div>
         <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20Bharara%20Viking%20Beirut.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
       </div>
     </div>
@@ -300,9 +352,18 @@ footer .logo{margin-bottom:12px;font-size:1.4rem}
       <div class="line"></div>
     </div>
     <div class="products-grid">
-      <div class="placeholder-card reveal">
-        <h3>Próximamente</h3>
-        <p>Estamos preparando una colección exclusiva para ti. Vuelve pronto.</p>
+      <div class="product-card reveal">
+        <div class="bottle-wrap">
+          <img src="https://fimgs.net/mdimg/perfume/o.96990.jpg" alt="Armaf Odyssey Candee">
+          <div class="aroma"><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
+        <h3>Armaf Odyssey Candee</h3>
+        <div class="product-type">Floral Gourmand</div>
+        <div class="select-btn">🔍 Ver Notas</div>
+        <div class="product-notes">
+          <p><strong>Notas de salida:</strong> Fresa, frambuesa, durazno, bergamota, geranio.<br><strong>Notas de corazón:</strong> Caramelo, maracuyá, jazmín.<br><strong>Notas de fondo:</strong> Ámbar, pachulí, almizcle.</p>
+        </div>
+        <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20Armaf%20Odyssey%20Candee.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
       </div>
     </div>
   </div>
@@ -422,6 +483,14 @@ function renderChart() {
   }
   c.innerHTML = html;
 }
+
+document.addEventListener('click', function(e) {
+  var card = e.target.closest('.product-card');
+  if (!card) return;
+  var wasActive = card.classList.contains('active');
+  document.querySelectorAll('.product-card.active').forEach(function(c) { c.classList.remove('active'); });
+  if (!wasActive) card.classList.add('active');
+});
 
 renderChart();
 
