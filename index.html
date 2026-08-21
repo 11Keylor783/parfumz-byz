@@ -86,6 +86,22 @@ nav a:hover::after{width:100%}
 .catalog-section.mujer .product-card{--glow-color:rgba(232,140,184,.6);--spray-color:rgba(232,140,184,.6)}
 .catalog-section.mujer .product-card:hover{border-color:rgba(232,140,184,.3);box-shadow:0 12px 40px rgba(212,97,140,.2)}
 
+/* SETS */
+.catalog-section.sets{background:linear-gradient(180deg,#1a1400 0%,#0D0D0D 30%,#151000 100%)}
+.catalog-section.sets::before{background:radial-gradient(ellipse at 40% 40%,rgba(218,165,32,.12) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(180,130,20,.08) 0%,transparent 50%)}
+.catalog-section.sets .section-title h2{color:#DAA520;text-shadow:0 0 30px rgba(218,165,32,.3)}
+.catalog-section.sets .section-title .line{background:linear-gradient(90deg,transparent,#DAA520,transparent);height:2px;width:100px}
+.catalog-section.sets .product-card{--glow-color:rgba(218,165,32,.5);--spray-color:rgba(218,165,32,.6)}
+.catalog-section.sets .product-card:hover{border-color:rgba(218,165,32,.3);box-shadow:0 12px 40px rgba(180,130,20,.2)}
+
+/* SPRAY */
+.catalog-section.spray{background:linear-gradient(180deg,#0a1a0a 0%,#0D0D0D 30%,#0a150a 100%)}
+.catalog-section.spray::before{background:radial-gradient(ellipse at 40% 40%,rgba(46,204,113,.10) 0%,transparent 60%),radial-gradient(ellipse at 70% 70%,rgba(39,174,96,.07) 0%,transparent 50%)}
+.catalog-section.spray .section-title h2{color:#2ECC71;text-shadow:0 0 30px rgba(46,204,113,.3)}
+.catalog-section.spray .section-title .line{background:linear-gradient(90deg,transparent,#2ECC71,transparent);height:2px;width:100px}
+.catalog-section.spray .product-card{--glow-color:rgba(46,204,113,.5);--spray-color:rgba(46,204,113,.6)}
+.catalog-section.spray .product-card:hover{border-color:rgba(46,204,113,.3);box-shadow:0 12px 40px rgba(39,174,96,.2)}
+
 .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:28px}
 .product-card{background:rgba(255,255,255,.03);border-radius:16px;padding:28px 24px;border:1px solid rgba(255,255,255,.08);transition:all .5s cubic-bezier(.4,0,.2,1);position:relative;overflow:visible;cursor:pointer}
 .product-card:hover{transform:translateY(-8px);border-color:rgba(255,255,255,.2);box-shadow:0 12px 40px rgba(0,0,0,.5)}
@@ -201,6 +217,8 @@ footer .logo{margin-bottom:12px;font-size:1.4rem}
         <li><a href="#hombre-noche">Hombre Noche</a></li>
         <li><a href="#hombre-dia">Hombre Día</a></li>
         <li><a href="#mujer">Mujer</a></li>
+        <li><a href="#sets">Sets</a></li>
+        <li><a href="#spray">Sprays</a></li>
         <li><a href="#ventas">Ventas</a></li>
         <li><a href="#nosotros">Nosotros</a></li>
         <li><a href="#contacto">Contacto</a></li>
@@ -217,6 +235,8 @@ footer .logo{margin-bottom:12px;font-size:1.4rem}
   <a href="#hombre-noche" onclick="toggleMobileNav()">Hombre Noche</a>
   <a href="#hombre-dia" onclick="toggleMobileNav()">Hombre Día</a>
   <a href="#mujer" onclick="toggleMobileNav()">Mujer</a>
+  <a href="#sets" onclick="toggleMobileNav()">Sets</a>
+  <a href="#spray" onclick="toggleMobileNav()">Sprays</a>
   <a href="#ventas" onclick="toggleMobileNav()">Ventas</a>
   <a href="#nosotros" onclick="toggleMobileNav()">Nosotros</a>
   <a href="#contacto" onclick="toggleMobileNav()">Contacto</a>
@@ -245,6 +265,20 @@ footer .logo{margin-bottom:12px;font-size:1.4rem}
       <div class="line"></div>
     </div>
     <div class="products-grid">
+
+      <div class="product-card reveal">
+        <div class="bottle-wrap">
+          <img src="https://fimgs.net/mdimg/perfume/social.112706.jpg" alt="Rasasi Hawas Kobra">
+          <div class="spray-wrap"><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span></div>
+        </div>
+        <h3>Rasasi Hawas Kobra</h3>
+        <div class="product-type">Eau de Parfum para Hombre</div>
+        <div class="select-btn">🔍 Ver Notas</div>
+        <div class="product-notes">
+          <p><strong>Notas de Salida:</strong> Jengibre, Bergamota, Mandarina<br><strong>Notas de Corazón:</strong> Té Verde, Canela, Neroli<br><strong>Notas de Fondo:</strong> Musk, Notas Amaderadas, Ámbar</p>
+        </div>
+        <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20el%20Rasasi%20Hawas%20Kobra.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
+      </div>
 
       <div class="product-card reveal">
         <div class="bottle-wrap">
@@ -302,6 +336,34 @@ footer .logo{margin-bottom:12px;font-size:1.4rem}
         <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20Rasasi%20Hawas%20London.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
       </div>
 
+      <div class="product-card reveal">
+        <div class="bottle-wrap">
+          <img src="https://fimgs.net/mdimg/perfume/social.64105.jpg" alt="Club de Nuit Sillage">
+          <div class="spray-wrap"><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span></div>
+        </div>
+        <h3>Club de Nuit Sillage</h3>
+        <div class="product-type">Floral Amaderado</div>
+        <div class="select-btn">🔍 Ver Notas</div>
+        <div class="product-notes">
+          <p><strong>Notas de salida:</strong> Bergamota, grosellas negras, limón, lima, hojas de violeta, jengibre.<br><strong>Notas de corazón:</strong> Rosa, lirio de los valles, jazmín, iris.<br><strong>Notas de fondo:</strong> Ambroxan, almizcle, sándalo, cedro.</p>
+        </div>
+        <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20Club%20de%20Nuit%20Sillage.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="bottle-wrap">
+          <img src="https://fimgs.net/mdimg/perfume/social.90407.jpg" alt="Armaf Tag Him Uomo Rosso">
+          <div class="spray-wrap"><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span></div>
+        </div>
+        <h3>Armaf Tag Him Uomo Rosso</h3>
+        <div class="product-type">Eau de Parfum para Hombre</div>
+        <div class="select-btn">🔍 Ver Notas</div>
+        <div class="product-notes">
+          <p><strong>Notas de Salida:</strong> Lavanda, Cardamomo, Notas Aromáticas<br><strong>Notas de Corazón:</strong> Notas Especiadas, Pimienta Negra<br><strong>Notas de Fondo:</strong> Vainilla, Tonka, Incienso, Pachulí</p>
+        </div>
+        <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20el%20Armaf%20Tag%20Him%20Uomo%20Rosso.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -315,6 +377,20 @@ footer .logo{margin-bottom:12px;font-size:1.4rem}
       <div class="line"></div>
     </div>
     <div class="products-grid">
+
+      <div class="product-card reveal">
+        <div class="bottle-wrap">
+          <img src="https://fimgs.net/mdimg/perfume/social.112309.jpg" alt="Rasasi Hawas Atlantis">
+          <div class="spray-wrap"><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span></div>
+        </div>
+        <h3>Rasasi Hawas Atlantis</h3>
+        <div class="product-type">Eau de Parfum Unisex</div>
+        <div class="select-btn">🔍 Ver Notas</div>
+        <div class="product-notes">
+          <p><strong>Notas de Salida:</strong> Bergamota, Limón, Manzana, Canela<br><strong>Notas de Corazón:</strong> Notas Acuáticas, Ciruela, Cardamomo, Azahar<br><strong>Notas de Fondo:</strong> Madera Flotante, Ámbar Gris, Pachulí, Musk</p>
+        </div>
+        <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20el%20Rasasi%20Hawas%20Atlantis.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
+      </div>
 
       <div class="product-card reveal">
         <div class="bottle-wrap">
@@ -370,6 +446,146 @@ footer .logo{margin-bottom:12px;font-size:1.4rem}
           <p><strong>Notas de salida:</strong> Bergamota, limón, naranja.<br><strong>Notas de corazón:</strong> Notas florales, jazmín, especias suaves.<br><strong>Notas de fondo:</strong> Madera de cedro, ámbar, almizcle, notas amaderadas.</p>
         </div>
         <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20Bharara%20Viking%20Beirut.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="bottle-wrap">
+          <img src="https://fimgs.net/mdimg/perfume/social.73020.jpg" alt="Dumont Nitro Pour Homme">
+          <div class="spray-wrap"><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span></div>
+        </div>
+        <h3>Dumont Nitro Pour Homme</h3>
+        <div class="product-type">Amaderado Aromático</div>
+        <div class="select-btn">🔍 Ver Notas</div>
+        <div class="product-notes">
+          <p><strong>Notas de salida:</strong> Bergamota, lavanda, manzana, limón.<br><strong>Notas de corazón:</strong> Notas acuáticas, flor de azahar, nuez moscada.<br><strong>Notas de fondo:</strong> Vainilla, ámbar, haba tonka, cedro, pachulí.</p>
+        </div>
+        <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20Dumont%20Nitro%20Pour%20Homme.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="bottle-wrap">
+          <img src="https://fimgs.net/mdimg/perfume/social.132745.jpg" alt="Bharara King Solei">
+          <div class="spray-wrap"><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span></div>
+        </div>
+        <h3>Bharara King Solei</h3>
+        <div class="product-type">Eau de Parfum Unisex</div>
+        <div class="select-btn">🔍 Ver Notas</div>
+        <div class="product-notes">
+          <p><strong>Notas de Salida:</strong> Naranja Siciliana, Bergamota de Calabria, Limón Siciliano<br><strong>Notas de Corazón:</strong> Jazmín, Sándalo, Bálsamo de Copahu, Madera Cashmere, Ámbar Gris<br><strong>Notas de Fondo:</strong> Vainilla de Madagascar, Chocolate, Avellana, Azahar, Bencina de Siam</p>
+        </div>
+        <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20el%20Bharara%20King%20Solei.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="bottle-wrap">
+          <img src="https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/D91949s.jpg?im=Resize,width=600" alt="Next Code Red">
+          <div class="spray-wrap"><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span></div>
+        </div>
+        <h3>Next Code Red</h3>
+        <div class="product-type">Eau de Parfum para Hombre</div>
+        <div class="select-btn">🔍 Ver Notas</div>
+        <div class="product-notes">
+          <p><strong>Notas de Salida:</strong> Pomelo, Notas Ozónicas<br><strong>Notas de Corazón:</strong> Hoja de Laurel, Jazmín<br><strong>Notas de Fondo:</strong> Musgo de Roble, Pachulí</p>
+        </div>
+        <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20el%20Next%20Code%20Red.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SETS -->
+<section class="catalog-section sets" id="sets">
+  <div class="container">
+    <div class="section-title reveal">
+      <h2>Sets de Regalo</h2>
+      <p>Regalos exclusivos para los amantes de las fragancias</p>
+      <div class="line"></div>
+    </div>
+    <div class="products-grid">
+
+      <div class="product-card reveal">
+        <div class="bottle-wrap">
+          <img src="https://armaf.com/cdn/shop/files/CLUBDENUITINTENSEMANGIFTSET_4b719408-1ee0-4c57-b729-bc738d1aeb9b.png?v=1770765386&width=600" alt="Club de Nuit Intense Man Gift Set">
+          <div class="spray-wrap"><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span></div>
+        </div>
+        <h3>Club de Nuit Intense Man — Gift Set 4pcs</h3>
+        <div class="product-type">Set de Regalo</div>
+        <div class="select-btn">🔍 Ver Contenido</div>
+        <div class="product-notes">
+          <p><strong>Incluye:</strong> 3.4 oz Eau de Parfum + 10ml Travel Spray + 3.4 oz Shower Gel + 6.8 oz Body Spray.<br><strong>Notas:</strong> Limón, piña, bergamota, grosellas negras, manzana, abedul, jazmín, rosa, almizcle, ámbar gris, pachulí, vainilla.</p>
+        </div>
+        <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20el%20Set%20Club%20de%20Nuit%20Intense%20Man.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="bottle-wrap">
+          <img src="https://fimgs.net/mdimg/perfume/social.89454.jpg" alt="Lattafa Pride Vintage Radio Set">
+          <div class="spray-wrap"><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span></div>
+        </div>
+        <h3>Lattafa Pride Vintage Radio — Gift Set 3pcs</h3>
+        <div class="product-type">Set de Regalo</div>
+        <div class="select-btn">🔍 Ver Contenido</div>
+        <div class="product-notes">
+          <p><strong>Incluye:</strong> 100ml EDP + 200ml Body Spray + 20ml Pocket EDP.<br><strong>Notas:</strong> Ciruela, lavanda, bergamota, palo de rosa de Brasil, pimienta negra, iris, sándalo, ámbar.</p>
+        </div>
+        <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20el%20Set%20Lattafa%20Pride%20Vintage%20Radio.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="bottle-wrap">
+          <img src="https://armaf.com/cdn/shop/files/TAGHIMGFTSET.png?v=1766007327&width=600" alt="Armaf Tag Him Gift Set">
+          <div class="spray-wrap"><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span></div>
+        </div>
+        <h3>Armaf Tag Him — Gift Set</h3>
+        <div class="product-type">Set de Regalo</div>
+        <div class="select-btn">🔍 Ver Contenido</div>
+        <div class="product-notes">
+          <p><strong>Incluye:</strong> EDP + Body Spray + Travel Spray.<br><strong>Notas:</strong> Cítricos frescos, jengibre especiado, cedro cálido. Un set perfecto para regalar.</p>
+        </div>
+        <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20el%20Set%20Armaf%20Tag%20Him.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SPRAY -->
+<section class="catalog-section spray" id="spray">
+  <div class="container">
+    <div class="section-title reveal">
+      <h2>Sprays Corporales</h2>
+      <p>Frescura y aroma todo el día al mejor precio</p>
+      <div class="line"></div>
+    </div>
+    <div class="products-grid">
+
+      <div class="product-card reveal">
+        <div class="bottle-wrap">
+          <img src="https://www.lattafa.my/cdn/perfumes/lattafa/asad-bourbon-nusentral-glass-bridge-100ml-edp/public/" alt="Asad Bourbon Body Spray">
+          <div class="spray-wrap"><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span></div>
+        </div>
+        <h3>Lattafa Asad Bourbon — Body Spray</h3>
+        <div class="product-type">Body Spray 200ml</div>
+        <div class="select-btn">🔍 Ver Notas</div>
+        <div class="product-notes">
+          <p><strong>Notas de Salida:</strong> Lavanda, Mirabela, Pimienta Rosa<br><strong>Notas de Corazón:</strong> Cacao, Nuez Moscada, Davana<br><strong>Notas de Fondo:</strong> Vainilla Bourbon, Ámbar, Vetiver</p>
+        </div>
+        <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20el%20Body%20Spray%20Asad%20Bourbon.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="bottle-wrap">
+          <img src="https://fimgs.net/mdimg/perfume/social.126960.jpg" alt="Odyssey Spectra Body Spray">
+          <div class="spray-wrap"><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span><span class="spray-particle"></span></div>
+        </div>
+        <h3>Armaf Odyssey Spectra — Body Spray</h3>
+        <div class="product-type">Body Spray 200ml</div>
+        <div class="select-btn">🔍 Ver Notas</div>
+        <div class="product-notes">
+          <p><strong>Notas de Salida:</strong> Bergamota, Canela, Manzana<br><strong>Notas de Corazón:</strong> Lavanda, Azahar, Lirio del Valle, Canela<br><strong>Notas de Fondo:</strong> Vainilla, Tabaco, Tonka, Pachulí, Ámbar</p>
+        </div>
+        <a href="https://wa.me/50683605914?text=Hola%2C%20me%20interesa%20el%20Body%20Spray%20Odyssey%20Spectra.%20%C2%BFTienen%20disponibilidad%3F" target="_blank" class="whatsapp-btn">💬 Consultar por WhatsApp</a>
       </div>
 
     </div>
@@ -629,4 +845,3 @@ function sendWhatsApp(e) {
 </script>
 </body>
 </html>
-```[cite: 4]
